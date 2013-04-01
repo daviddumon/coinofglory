@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{ title }}</title>
+    <title>Showcase your glory!</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+    <link rel='stylesheet' href='/stylesheets/bootstrap-responsive.min.css' />
   </head>
   <body>
-    <h1>{{ title }}</h1>
-    <p>Welcome to {{ title }}</p>
+
   </body>
 </html>
