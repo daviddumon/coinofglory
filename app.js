@@ -1,7 +1,6 @@
 var express = require('express')
     , routes = require('./routes')
     , http = require('http')
-    , wine = require('./routes/wines')
     , path = require('path');
 
 var app = express();
@@ -24,8 +23,6 @@ app.configure('development', function () {
 });
 
 app.get('/', routes.index);
-app.get('/wines', wine.findAll);
-app.post('/wines', wine.addWine);
 
 http.createServer(app).listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
