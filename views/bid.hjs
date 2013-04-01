@@ -52,7 +52,9 @@
         </div>
     </div>
 </div>
-
+<div class="container">
+    <a class="coinbase-button" data-code="cca6ea2d4b2dca2aac2a6838d997e2a1" data-custom="coinofglory" href="https://coinbase.com/checkouts/cca6ea2d4b2dca2aac2a6838d997e2a1">Pay With Bitcoin</a><script src="https://coinbase.com/assets/button.js" type="text/javascript"></script>
+</div>
 <script src="/javascripts/bootstrap.min.js"></script>
 </body>
 </html>
