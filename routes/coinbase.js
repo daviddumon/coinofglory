@@ -19,6 +19,7 @@ exports.add = function(req, res) {
                 } else {
                     console.log('Success:');
                 }
+                db.close();
             });
         });
     });
