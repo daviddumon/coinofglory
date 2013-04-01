@@ -2,6 +2,7 @@ var express = require('express')
     , routes = require('./routes')
     , about = require('./routes/about')
     , bid = require('./routes/bid')
+    , coinbase = require('./routes/coinbase')
     , http = require('http')
     , path = require('path');
 
