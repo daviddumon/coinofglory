@@ -2,12 +2,18 @@ var mongo = require('mongodb');
 
 var Server = mongo.Server,
     Db = mongo.Db,
-    BSON = mongo.BSONPure;
+    BSON = mongo.BSONPure,
+    Connection = mongo.Connection,
+    MongoClient = require('mongodb').MongoClient;
 
-var server = new Server('localhost', 27017, {auto_reconnect: true});
-db = new Db('winedb', server);
+//var host = process.env['MONGO_NODE_DRIVER_HOST'] != null ? process.env['MONGO_NODE_DRIVER_HOST'] : 'localhost';
+//var port = process.env['MONGO_NODE_DRIVER_PORT'] != null ? process.env['MONGO_NODE_DRIVER_PORT'] : Connection.DEFAULT_PORT;
 
-db.open(function(err, db) {
+MongoClient.connect("mongodb://coinofglory:bG%)(Ynt7->h[*6@dharma.mongohq.com:10099/coinofglory", function(err, db) {
+    populateDB(db);
+});
+
+/*db.open(function(err, db) {
     if(!err) {
         console.log("Connected to 'winedb' database");
         populateDB();
@@ -78,12 +84,12 @@ exports.deleteWine = function(req, res) {
             }
         });
     });
-}
+}*/
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Populate database with sample data -- Only used once: the first time the application is started.
 // You'd typically not find this code in a real-life app, since the database would already exist.
-var populateDB = function() {
+var populateDB = function(db) {
 
     var wines = [
         {
