@@ -2,3 +2,16 @@ body {
   background-color: #f5f0ed !important;
   padding-top: 60px;
 }
+body #getglory i {
+  background-image: url('../images/glyphicons-halflings-white.png');
+  margin-right: 5px;
+}
+body a.brand {
+  color: #ecab75 !important;
+}
+body a.brand:hover {
+  color: #f5f0ed !important;
+}
+body div {
+  text-align: center;
+}

@@ -41,17 +41,20 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="#">coinofglory.com</a>
+            <a class="brand" href="/">coinofglory.com</a>
 
             <div class="nav-collapse collapse">
                 <ul class="nav">
-                    <li class="active"><a href="/">Home</a></li>
                     <li><a href="/about">About</a></li>
-                    <li><a href="/bid">Bid</a></li>
+                    <!--<li><a href="/bid">Bid</a></li>-->
                 </ul>
             </div>
         </div>
     </div>
+</div>
+
+<div class="container">
+<a id="getglory" class="btn btn-large btn-success" href="/bid"><i class="icon-star-empty"></i>Get glory !</a>
 </div>
 
 <script src="/javascripts/bootstrap.min.js"></script>
