@@ -14,12 +14,13 @@ exports.add = function(req, res) {
     MongoClient.connect("mongodb://coinofglory:bG%)(Ynt7->h[*6@dharma.mongohq.com:10099/coinofglory", function(err, db) {
         db.collection('paiement', function(err, collection) {
             collection.insert(paiement, {safe:true}, function(err, result) {
+                db.close();
                 if (err) {
                     res.send({'error':'An error has occurred'});
                 } else {
                     console.log('Success:');
+                    res.send(result[0]);
                 }
-                db.close();
             });
         });
     });
