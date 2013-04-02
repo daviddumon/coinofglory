@@ -19,7 +19,7 @@ exports.add = function(req, res) {
                     res.send({'error':'An error has occurred'});
                 } else {
                     console.log('Success:');
-                    res.send(result[0]);
+                    res.send("OK");
                 }
             });
         });
