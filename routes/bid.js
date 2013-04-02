@@ -35,7 +35,7 @@ function newInvoice(price, response) {
                 obj = {error: {type: 'parsingError', message: 'Error parsing server response'}};
             }
             console.log(obj);
-            response.render('index', {});
+            response.render('bid-ok', {"url" : obj.url});
         });
     });
     req.on('error', function(err) {
