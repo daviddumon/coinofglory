@@ -6,7 +6,7 @@ exports.index = function(req, res){
 };
 
 exports.creation = function(req, res){
-   newInvoice(0.0001, res);
+   newInvoice(0.0005, res);
 }
 
 function newInvoice(price, response) {
