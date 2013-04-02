@@ -9,7 +9,7 @@ exports.creation = function(req, res){
    newInvoice(0.001, res);
 }
 
-function newInvoice(price, res) {
+function newInvoice(price, response) {
     var newInvoice = { "price" : price, "currency" : "BTC", "posData" : "test-paiement",
         "notificationURL" : "https://riotous-refuge-9554.herokuapp.com/bitpay-notifications", "fullNotifications":true,
         "redirectURL" : "http://www.coinofglory.com"};
@@ -35,12 +35,12 @@ function newInvoice(price, res) {
                 obj = {error: {type: 'parsingError', message: 'Error parsing server response'}};
             }
             console.log(obj);
-            res.render('index', {});
+            response.render('index', {});
         });
     });
     req.on('error', function(err) {
         console.error(err);
-        res.render('index', {});
+        response.render('index', {});
     });
     req.setHeader('Content-Type', 'application/json');
     var str = JSON.stringify(newInvoice);
