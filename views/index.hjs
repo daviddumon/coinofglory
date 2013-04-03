@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <title>Coin of glory - Showcase your glory!</title>
@@ -54,7 +54,9 @@
         </div>
     </div>
 </div>
-
+<div class="container">
+    <a href="{{glory.link}}"><img src="{{glory.imageUrl}}" /></a>
+</div>
 <div class="container">
 <a id="getglory" class="btn btn-large btn-success" href="/bid"><i class="icon-star-empty"></i>Get glory !</a>
 </div>
