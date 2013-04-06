@@ -58,6 +58,15 @@
 
 <div id="pay">
     <form method="post" action="/bid">
+        <label for="form-url">Url</label>
+        <select name="protocol">
+            <option value="http">http://</option>
+            <option value="https">https://</option>
+        </select>
+        <input id="form-url" type="text" name="url" required="required"/>
+        <label for="form-image">Image</label>
+        <input id="form-image" type="file" name="image" required="required"/>
+        <br />
         <button class="btn btn-large btn-success" href="/bid">I want glory!</button>
     </form>
 </div>

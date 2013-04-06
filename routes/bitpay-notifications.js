@@ -16,7 +16,7 @@ function newNotification(paiement, res) {
     if (paiement.status == configuration.bitPayStatus) {
         mongo.execute(function(err, db) {
             db.collection('glory', function(err, collection) {
-                collection.update({_id: new ObjectID(gloryId)}, {$set: {paid: true}}, {safe:true},
+                collection.update({_id: new ObjectID(gloryId)}, {$set: {paidDate: new Date()}}, {safe:true},
                     function(err) {
                         db.close();
                         if (err) {

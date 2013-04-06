@@ -3,8 +3,8 @@ var mongo = require('../mongo/mongofactory');
 exports.index = function (req, res) {
     mongo.execute(function (err, db) {
         db.collection('glory', function (err, collection) {
-            collection.find({paid: true}, {sort: [
-                ['date', 'desc']
+            collection.find({}, {sort: [
+                ['paidDate', 'desc']
             ]}).nextObject(function (err, doc) {
                 console.log(doc);
                 res.render('index', {glory: doc});
