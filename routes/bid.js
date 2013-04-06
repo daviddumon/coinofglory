@@ -1,6 +1,7 @@
 var https = require('https'),
     mongo = require('../mongo/mongofactory'),
-    configuration = require('../configuration/configuration');
+    configuration = require('../configuration/configuration'),
+    sanitize = require('validator').sanitize;
 
 
 exports.index = function (req, res) {
@@ -8,7 +9,9 @@ exports.index = function (req, res) {
 };
 
 exports.creation = function (req, res) {
-    var glory = {};
+    var glory = { imageUrl : "http://funnysz.com/wp-content/uploads/2010/11/Lolcat_terrorist.jpg", link : "http://www.feelhub.com<script>" };
+    glory.link = sanitize(glory.link).xss();
+
     mongo.execute(function(err, db) {
         db.collection('glory', function(err, collection) {
             collection.insert(glory, {safe:true}, function(err, result) {
