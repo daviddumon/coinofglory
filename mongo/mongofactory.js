@@ -5,6 +5,9 @@ var Server = mongo.Server,
     BSON = mongo.BSONPure,
     MongoClient = require('mongodb').MongoClient;
 
+var mongodbConnexion = process.env['MONGODB_CONNEXION'] != null ? process.env['MONGODB_CONNEXION'] : 'localhost:27017/coinofglory';
+
+
 exports.execute = function(traitement) {
-    MongoClient.connect("mongodb://coinofglory:bG%)(Ynt7->h[*6@dharma.mongohq.com:10099/coinofglory", traitement);
+    MongoClient.connect("mongodb://" + mongodbConnexion, traitement);
 };
