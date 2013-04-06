@@ -57,7 +57,9 @@
 </ul>
 
 <div id="pay">
-    <a class="btn btn-large btn-success" href="/bid"><span>I want glory!</span></a>
+    <form method="post" action="/bid">
+        <button class="btn btn-large btn-success" href="/bid">I want glory!</button>
+    </form>
 </div>
 <script src="/javascripts/bootstrap.min.js"></script>
 </body>

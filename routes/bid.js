@@ -1,4 +1,5 @@
-var https = require('https');
+var https = require('https'),
+    mongo = require('../mongo/mongofactory');
 
 
 exports.index = function (req, res) {
@@ -6,15 +7,28 @@ exports.index = function (req, res) {
 };
 
 exports.creation = function (req, res) {
-    newInvoice(0.005, res);
+    var glory = {};
+    mongo.execute(function(err, db) {
+        db.collection('glory', function(err, collection) {
+            collection.insert(glory, {safe:true}, function(err, result) {
+                db.close();
+                if (err) {
+                    res.send({'error':'An error has occurred'});
+                } else {
+                    newInvoice(0.005, glory._id, res);
+                    res.send("OK");
+                }
+            });
+        });
+    });
 }
 
-function newInvoice(price, response) {
+function newInvoice(price, gloryId, response) {
 
     var newInvoice = {
         "price": price,
         "currency": "BTC",
-        "posData": "test-paiement",
+        "posData": gloryId,
         "notificationURL": "https://riotous-refuge-9554.herokuapp.com/bitpay-notifications",
         "fullNotifications": true,
         "redirectURL": "http://www.coinofglory.com"};
@@ -40,7 +54,6 @@ function newInvoice(price, response) {
             } catch (e) {
                 obj = {error: {type: 'parsingError', message: 'Error parsing server response'}};
             }
-            console.log(obj);
             response.render('bid-ok', {"url": obj.url});
         });
     });
