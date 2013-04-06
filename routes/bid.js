@@ -24,7 +24,7 @@ function newGlory(req, res) {
                     res.send({'error':'An error has occurred'});
                 } else {
                     newInvoice(0.005, glory._id, res);
-                    res.send("OK");
+                    //res.send("OK");
                 }
             });
         });
