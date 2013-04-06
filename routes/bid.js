@@ -1,5 +1,6 @@
 var https = require('https'),
-    mongo = require('../mongo/mongofactory');
+    mongo = require('../mongo/mongofactory'),
+    configuration = require('../configuration/configuration');
 
 
 exports.index = function (req, res) {
@@ -29,7 +30,7 @@ function newInvoice(price, gloryId, response) {
         "price": price,
         "currency": "BTC",
         "posData": gloryId,
-        "notificationURL": "https://riotous-refuge-9554.herokuapp.com/bitpay-notifications",
+        "notificationURL": "https://riotous-refuge-9554.herokuapp.com/bitpay-notifications?v=" + configuration.bitPayNotificationParameter,
         "fullNotifications": true,
         "redirectURL": "http://www.coinofglory.com"};
 

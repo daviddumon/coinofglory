@@ -1,7 +1,39 @@
-var mongo = require('../mongo/mongofactory');
+var mongo = require('../mongo/mongofactory'),
+    ObjectID = require('mongodb').ObjectID,
+    configuration = require('../configuration/configuration');
+
 
 exports.add = function(req, res) {
-    var paiement = req.body;
+    if (!(req.query["v"] == configuration.bitPayNotificationParameter)) {
+        res.send(403);
+    } else {
+        newNotification(req.body, res);
+    }
+}
+
+function newNotification(paiement, res) {
+    var gloryId = paiement.posData;
+    if (paiement.status == configuration.bitPayStatus) {
+        mongo.execute(function(err, db) {
+            db.collection('glory', function(err, collection) {
+                collection.update({_id: new ObjectID(gloryId)}, {$set: {paid: true}}, {safe:true},
+                    function(err) {
+                        db.close();
+                        if (err) {
+                            res.send({'error':'An error has occurred'});
+                        }
+                        else {
+                            insertPaiement(paiement, res);
+                        }
+                    });
+            });
+        });
+    } else {
+        insertPaiement(paiement, res);
+    }
+}
+
+function insertPaiement(paiement, res) {
     mongo.execute(function(err, db) {
         db.collection('paiement', function(err, collection) {
             collection.insert(paiement, {safe:true}, function(err, result) {
@@ -9,7 +41,6 @@ exports.add = function(req, res) {
                 if (err) {
                     res.send({'error':'An error has occurred'});
                 } else {
-                    console.log('Success:');
                     res.send("OK");
                 }
             });
