@@ -1,6 +1,5 @@
 var express = require('express')
     , routes = require('./routes')
-    , about = require('./routes/about')
     , bid = require('./routes/bid')
     , bitpayNotifications = require('./routes/bitpay-notifications')
     , http = require('http')
@@ -26,7 +25,6 @@ app.configure('development', function () {
 });
 
 app.get('/', routes.index);
-app.get('/about', about.index);
 app.get('/bid', bid.index);
 app.post('/bid', bid.creation);
 app.post('/bitpay-notifications', bitpayNotifications.add);

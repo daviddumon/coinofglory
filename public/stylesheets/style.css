@@ -1,18 +1,78 @@
+.shadow {
+  -webkit-box-shadow: 0px 14px 6px -10px #777777;
+  -moz-box-shadow: 0px 14px 6px -10px #777777;
+  box-shadow: 0px 14px 6px -10px #777777;
+}
 body {
-  background-color: #f5f0ed !important;
-  padding-top: 60px;
-}
-body #getglory i {
-  background-image: url('../images/glyphicons-halflings-white.png');
-  margin-right: 5px;
-}
-body a.brand {
-  color: #ecab75 !important;
-  font-family: 'Lobster';
-}
-body a.brand:hover {
-  color: #f5f0ed !important;
+  background-color: #ecab75 !important;
+  height: 100% !important;
 }
 body div {
   text-align: center;
+}
+body a.brand {
+  display: block;
+  margin: 0px auto;
+  text-align: center;
+  margin-top: 80px !important;
+  text-decoration: none !important;
+}
+body a.brand:hover span {
+  color: #f5f0ed !important;
+}
+body a.brand span {
+  color: #d3751b !important;
+  font-family: 'Lobster';
+  font-size: 64px;
+}
+body a.brand img {
+  margin-top: -30px;
+  margin-right: 30px;
+  margin-left: 30px;
+}
+body #getglory,
+body #pay {
+  margin: 50px !important;
+}
+body #getglory i,
+body #pay i {
+  background-image: url('../images/glyphicons-halflings-white.png');
+}
+body #getglory span,
+body #pay span {
+  color: white !important;
+  margin: 5px;
+}
+body #theglory {
+  padding: 0px;
+  margin: 0px auto;
+}
+body #theglory img {
+  max-width: 80%;
+  max-height: 60%;
+  -webkit-box-shadow: 0px 14px 6px -10px #777777;
+  -moz-box-shadow: 0px 14px 6px -10px #777777;
+  box-shadow: 0px 14px 6px -10px #777777;
+}
+body #explications {
+  text-align: center;
+  height: 100%;
+  margin-top: 80px;
+}
+body #explications li {
+  padding: 20px;
+  display: inline-block;
+  width: 200px;
+  height: 100%;
+  vertical-align: top;
+}
+body #explications li i {
+  color: white;
+  font-size: 64px;
+  height: 80px;
+}
+body #explications li p {
+  font-size: 24px;
+  color: #f5f0ed !important;
+  line-height: 1.3em;
 }

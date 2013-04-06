@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <title>Coin of glory - Showcase your glory!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Showcase your glory!">
 
+    <link rel='stylesheet' href='/stylesheets/reset.css'/>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel='stylesheet' href='/stylesheets/font-awesome.min.css'/>
     <link rel='stylesheet' href='/stylesheets/bootstrap.min.css'/>
     <link rel='stylesheet' href='/stylesheets/bootstrap-responsive.min.css'/>
     <link href="//fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
     <!--[if lt IE 9]>
     <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -34,30 +36,28 @@
 </head>
 
 <body>
+<a class="brand" href="/"><img src="/images/bitcoin.png"/><span>Coin of glory</span><img src="/images/bitcoin.png"/></a>
 
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="brand" href="/"><img src="/images/bitcoin.png"> Coin of glory</a>
+<ul id="explications">
+    <li>
+        <i class="icon-bullhorn"></i>
 
-            <div class="nav-collapse collapse">
-                <ul class="nav">
-                    <li><a href="/about">About</a></li>
-                    <!--<li class="active"><a href="/bid">Bid</a></li>-->
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <form method="post" action="/bid">
-        <button type="submit" class="btn btn-large btn-primary">Pay !</a>
-    </form>
+        <p>Showcase the things that matters to you !</p>
+    </li>
+    <li>
+        <i class="icon-shopping-cart"></i>
+
+        <p>For as low as 0.005BTC, get some glory for the things you care about !</p>
+    </li>
+    <li>
+        <i class="icon-desktop"></i>
+
+        <p>Your image and link will stay on frontpage, as long as nobody else get some glory !</p>
+    </li>
+</ul>
+
+<div id="pay">
+    <a class="btn btn-large btn-success" href="/bid"><span>I want glory!</span></a>
 </div>
 <script src="/javascripts/bootstrap.min.js"></script>
 </body>

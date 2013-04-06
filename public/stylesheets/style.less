@@ -4,26 +4,94 @@
 @ferrum: #571D07;
 @terranera: #29100C;
 
+.shadow {
+  -webkit-box-shadow: 0px 14px 6px -10px #777777;
+  -moz-box-shadow: 0px 14px 6px -10px #777777;
+  box-shadow: 0px 14px 6px -10px #777777;
+}
+
 body {
-
-  #getglory i {
-    background-image: url('../images/glyphicons-halflings-white.png');
-    margin-right: 5px;
-  }
-
-  a.brand {
-    color: @help !important;
-
-    &:hover {
-      color: @circawhite !important;
-    }
-    font-family : 'Lobster';
-  }
+  background-color: @help !important;
+  height: 100% !important;
 
   div {
     text-align: center;
   }
 
-  background-color: @circawhite !important;
-  padding-top: 60px;
+  a.brand {
+    display: block;
+    margin: 0px auto;
+    text-align: center;
+    margin-top: 80px !important;
+    text-decoration: none !important;
+
+    &:hover {
+
+      span {
+        color: @circawhite !important;
+      }
+    }
+
+    span {
+      color: @pressure !important;
+      font-family: 'Lobster';
+      font-size: 64px;
+    }
+
+    img {
+      margin-top: -30px;
+      margin-right: 30px;
+      margin-left: 30px;
+    }
+  }
+
+  #getglory, #pay {
+    margin: 50px !important;
+
+    i {
+      background-image: url('../images/glyphicons-halflings-white.png');
+    }
+
+    span {
+      color: white !important;
+      margin: 5px;
+    }
+  }
+
+  #theglory {
+    padding: 0px;
+    margin: 0px auto;
+
+    img {
+      max-width: 80%;
+      max-height: 60%;
+      .shadow;
+    }
+  }
+
+  #explications {
+    text-align: center;
+    height: 100%;
+    margin-top: 80px;
+
+    li {
+      padding: 20px;
+      display: inline-block;
+      width: 200px;
+      height: 100%;
+      vertical-align: top;
+
+      i {
+        color: white;
+        font-size: 64px;
+        height: 80px;
+      }
+
+      p {
+        font-size: 24px;
+        color: @circawhite !important;
+        line-height: 1.3em;
+      }
+    }
+  }
 }
