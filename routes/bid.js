@@ -9,12 +9,16 @@ exports.index = function (req, res) {
 };
 
 exports.creation = function (req, res) {
+    newGlory(req, res);
+}
+
+function newGlory(req, res) {
     var glory = { imageUrl : "http://funnysz.com/wp-content/uploads/2010/11/Lolcat_terrorist.jpg", link : "http://www.feelhub.com<script>" };
     glory.link = sanitize(glory.link).xss();
 
     mongo.execute(function(err, db) {
         db.collection('glory', function(err, collection) {
-            collection.insert(glory, {safe:true}, function(err, result) {
+            collection.insert(glory, {safe:true}, function(err) {
                 db.close();
                 if (err) {
                     res.send({'error':'An error has occurred'});
@@ -28,7 +32,6 @@ exports.creation = function (req, res) {
 }
 
 function newInvoice(price, gloryId, response) {
-
     var newInvoice = {
         "price": price,
         "currency": "BTC",
