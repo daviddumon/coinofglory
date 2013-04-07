@@ -27,6 +27,7 @@ app.get('/', routes.index);
 app.get('/bid', bid.index);
 app.post('/bid', bid.creation);
 app.post('/bitpay-notifications', bitpayNotifications.add);
+app.get('/glories/:index', routes.index);
 
 http.createServer(app).listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));

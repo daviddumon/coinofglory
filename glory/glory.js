@@ -3,24 +3,24 @@ var mongo = require('../mongo/mongofactory'),
     configuration = require('../configuration/configuration'),
     sanitize = require('validator').sanitize;
 
-exports.lastPaid = function(callback) {
+exports.lastPaid = function (callback, glory_index) {
     mongo.execute(function (err, db) {
         db.collection('glory', function (err, collection) {
             collection.find({paidDate: { $exists: true }}, {sort: [
                 ['paidDate', 'desc']
-            ]}).nextObject(callback);
+            ]}).skip(glory_index).nextObject(callback);
         });
     });
 }
 
-exports.add = function(s3Key, siteUrl, res) {
-    var glory = { imageUrl : configuration.amazon.s3HttpPrefix + s3Key, link : sanitize(siteUrl).xss() };
-    mongo.execute(function(err, db) {
-        db.collection('glory', function(err, collection) {
-            collection.insert(glory, {safe:true}, function(err) {
+exports.add = function (s3Key, siteUrl, res) {
+    var glory = { imageUrl: configuration.amazon.s3HttpPrefix + s3Key, link: sanitize(siteUrl).xss() };
+    mongo.execute(function (err, db) {
+        db.collection('glory', function (err, collection) {
+            collection.insert(glory, {safe: true}, function (err) {
                 db.close();
                 if (err) {
-                    res.send({'error':'An error has occurred'});
+                    res.send({'error': 'An error has occurred'});
                 } else {
                     newInvoice(0.005, glory._id, res);
                 }
