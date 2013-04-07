@@ -69,9 +69,9 @@
 
         <div class="fileupload fileupload-new" data-provides="fileupload">
             <div>
-                <span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span>
+                <span class="btn btn-file btn btn-primary"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span>
                     <input type="file" accept="image/*" name="image" required="required"/></span>
-                <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+                <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
             </div>
             <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;">
                 <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" />
