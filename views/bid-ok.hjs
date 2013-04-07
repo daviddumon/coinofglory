@@ -36,7 +36,7 @@
 <body>
 <a class="brand" href="/"><img src="/img/bitcoin.png"/><span>Coin of glory</span><img src="/img/bitcoin.png"/></a>
 
-<div class="pay">
+<div id="bid-ok">
     <p>You can pay by following this url : </p>
     <a href="{{url}}">{{url}}</a>
     <p>Or pay directly : </p>

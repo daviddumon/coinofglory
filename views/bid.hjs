@@ -79,7 +79,7 @@
 
         </div>
         <br />
-        <button type="submit" class="btn btn-large btn-success" href="/bid">I want glory!</button>
+        <button type="submit" class="btn btn-large btn-success" href="/bid">I want glory !</button>
     </form>
 </div>
 

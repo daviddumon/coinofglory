@@ -6,6 +6,7 @@
 body {
   background-color: #ecab75 !important;
   height: 100% !important;
+  color: #f5f0ed !important;
 }
 body div {
   text-align: center;
@@ -34,6 +35,10 @@ body #getglory,
 body #pay {
   margin: 50px !important;
 }
+body #getglory label,
+body #pay label {
+  font-size: 16px;
+}
 body #getglory i,
 body #pay i {
   background-image: url('../img/glyphicons-halflings-white.png');
@@ -42,6 +47,10 @@ body #getglory span,
 body #pay span {
   color: white !important;
   margin: 5px;
+}
+body #bid-ok {
+  margin-top: 50px !important;
+  font-size: 16px;
 }
 body #theglory {
   padding: 0px;
@@ -73,6 +82,5 @@ body #explications li i {
 }
 body #explications li p {
   font-size: 24px;
-  color: #f5f0ed !important;
   line-height: 1.3em;
 }
