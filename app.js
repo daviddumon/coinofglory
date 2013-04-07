@@ -1,6 +1,7 @@
 var express = require('express')
     , routes = require('./routes')
     , bid = require('./routes/bid')
+    , bidOk = require('./routes/bid-ok')
     , bitpayNotifications = require('./routes/bitpay-notifications')
     , http = require('http')
     , path = require('path');
@@ -25,6 +26,7 @@ app.configure('development', function () {
 });
 app.get('/', routes.index);
 app.get('/bid', bid.index);
+app.get('/bid-ok', bidOk.index);
 app.post('/bid', bid.creation);
 app.post('/bitpay-notifications', bitpayNotifications.add);
 app.get('/glories/:index', routes.index);

@@ -51,7 +51,7 @@ function newInvoice(price, gloryId, response) {
             } catch (e) {
                 obj = {error: {type: 'parsingError', message: 'Error parsing server response'}};
             }
-            response.render('bid-ok', {"url": obj.url});
+            response.redirect('/bid-ok?url=' + obj.url);
         });
     });
 
