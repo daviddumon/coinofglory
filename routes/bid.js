@@ -3,7 +3,9 @@ var https = require('https'),
     configuration = require('../configuration/configuration'),
     sanitize = require('validator').sanitize,
     express = require('express'),
-    aws = require('aws-sdk');
+    AWS = require('aws-sdk'),
+    fs = require('fs'),
+    uuid = require('node-uuid');
 
 
 exports.index = function (req, res) {
@@ -15,21 +17,24 @@ exports.creation = function (req, res) {
 }
 
 function newGlory(image, url, res) {
-    // add image to S3
-    /*aws.config.update({accessKeyId: configuration.amazon.accessKeyId, secretAccessKey: configuration.amazon.secretAccessKey});
-    aws.config.update({region: 'us-east-1'});
-    var s3 = new aws.S3();
-    var data = {Bucket: 'myBucket', Key: 'myKey', Body: 'Hello!'};
-    s3.client.putObject(data).done(function(resp) {
-        console.log("Successfully uploaded data to myBucket/myKey");
-    });*/
-    var s3Url = 'http://funnysz.com/wp-content/uploads/2010/11/Lolcat_terrorist.jpg';
-
-    addGlory(s3Url, url, res);
+    AWS.config.update({accessKeyId: configuration.amazon.accessKeyId, secretAccessKey: configuration.amazon.secretAccessKey, region: 'us-east-1'});
+    var s3Key = uuid.v4();
+    fs.readFile(image.path, function (err, data) {
+        var options = {Bucket: configuration.amazon.s3Bucket, Key: s3Key, Body: data, ACL:'public-read', ContentType : image.type};
+        var s3 = new AWS.S3();
+        s3.client.putObject(options, function(err, data) {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                addGlory(s3Key, url, res);
+            }
+        });
+    });
 }
 
-function addGlory(s3Url, siteUrl, res) {
-    var glory = { imageUrl : s3Url, link : sanitize(siteUrl).xss() };
+function addGlory(s3Key, siteUrl, res) {
+    var glory = { imageUrl : configuration.amazon.s3HttpPrefix + s3Key, link : sanitize(siteUrl).xss() };
     mongo.execute(function(err, db) {
         db.collection('glory', function(err, collection) {
             collection.insert(glory, {safe:true}, function(err) {
@@ -37,7 +42,7 @@ function addGlory(s3Url, siteUrl, res) {
                 if (err) {
                     res.send({'error':'An error has occurred'});
                 } else {
-                    //newInvoice(0.005, glory._id, res);
+                    newInvoice(0.005, glory._id, res);
                 }
             });
         });
