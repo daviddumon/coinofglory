@@ -45,9 +45,27 @@
     <a href="{{glory.link}}"><img src="{{glory.imageUrl}}"/></a>
 </div>
 
-<div class="container">
-    <a class="btn btn-success" href="/glories/{{past}}">Past glories</a>
+<div class="navbar navbar-fixed-bottom">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="bar-brand" href="/">coinofglory.com</a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li><a href="/glories/{{past}}">past glories</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
+
+<!--<a class="btn btn-success" href="/glories/{{past}}" id="past">Past glories</a>-->
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 </body>
