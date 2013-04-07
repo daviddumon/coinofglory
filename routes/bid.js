@@ -1,7 +1,9 @@
 var https = require('https'),
     mongo = require('../mongo/mongofactory'),
     configuration = require('../configuration/configuration'),
-    sanitize = require('validator').sanitize;
+    sanitize = require('validator').sanitize,
+    express = require('express'),
+    aws = require('aws-sdk');
 
 
 exports.index = function (req, res) {
@@ -9,13 +11,25 @@ exports.index = function (req, res) {
 };
 
 exports.creation = function (req, res) {
-    newGlory(req, res);
+    newGlory(req.files.image, req.body.protocol + '://' + req.body.url, res);
 }
 
-function newGlory(req, res) {
-    var glory = { imageUrl : "http://funnysz.com/wp-content/uploads/2010/11/Lolcat_terrorist.jpg", link : "http://www.feelhub.com<script>" };
-    glory.link = sanitize(glory.link).xss();
+function newGlory(image, url, res) {
+    // add image to S3
+    /*aws.config.update({accessKeyId: configuration.amazon.accessKeyId, secretAccessKey: configuration.amazon.secretAccessKey});
+    aws.config.update({region: 'us-east-1'});
+    var s3 = new aws.S3();
+    var data = {Bucket: 'myBucket', Key: 'myKey', Body: 'Hello!'};
+    s3.client.putObject(data).done(function(resp) {
+        console.log("Successfully uploaded data to myBucket/myKey");
+    });*/
+    var s3Url = 'http://funnysz.com/wp-content/uploads/2010/11/Lolcat_terrorist.jpg';
 
+    addGlory(s3Url, url, res);
+}
+
+function addGlory(s3Url, siteUrl, res) {
+    var glory = { imageUrl : s3Url, link : sanitize(siteUrl).xss() };
     mongo.execute(function(err, db) {
         db.collection('glory', function(err, collection) {
             collection.insert(glory, {safe:true}, function(err) {
@@ -23,8 +37,7 @@ function newGlory(req, res) {
                 if (err) {
                     res.send({'error':'An error has occurred'});
                 } else {
-                    newInvoice(0.005, glory._id, res);
-                    //res.send("OK");
+                    //newInvoice(0.005, glory._id, res);
                 }
             });
         });
@@ -36,7 +49,7 @@ function newInvoice(price, gloryId, response) {
         "price": price,
         "currency": "BTC",
         "posData": gloryId,
-        "notificationURL": "https://riotous-refuge-9554.herokuapp.com/bitpay-notifications?v=" + configuration.bitPayNotificationParameter,
+        "notificationURL": "https://riotous-refuge-9554.herokuapp.com/bitpay-notifications?v=" + configuration.bitPay.notificationParameter,
         "fullNotifications": true,
         "redirectURL": "http://www.coinofglory.com"};
 

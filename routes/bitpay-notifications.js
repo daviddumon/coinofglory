@@ -4,7 +4,7 @@ var mongo = require('../mongo/mongofactory'),
 
 
 exports.add = function(req, res) {
-    if (!(req.query["v"] == configuration.bitPayNotificationParameter)) {
+    if (!(req.query["v"] == configuration.bitPay.notificationParameter)) {
         res.send(403);
     } else {
         newNotification(req.body, res);
@@ -13,7 +13,7 @@ exports.add = function(req, res) {
 
 function newNotification(paiement, res) {
     var gloryId = paiement.posData;
-    if (paiement.status == configuration.bitPayStatus) {
+    if (paiement.status == configuration.bitPay.status) {
         mongo.execute(function(err, db) {
             db.collection('glory', function(err, collection) {
                 collection.update({_id: new ObjectID(gloryId)}, {$set: {paidDate: new Date()}}, {safe:true},

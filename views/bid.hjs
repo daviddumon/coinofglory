@@ -57,7 +57,7 @@
 </ul>
 
 <div id="pay">
-    <form method="post" action="/bid">
+    <form method="post" action="/bid" enctype="multipart/form-data">
         <label for="form-url">Url</label>
         <select name="protocol">
             <option value="http">http://</option>

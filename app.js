@@ -23,7 +23,6 @@ app.configure(function () {
 app.configure('development', function () {
     app.use(express.errorHandler());
 });
-
 app.get('/', routes.index);
 app.get('/bid', bid.index);
 app.post('/bid', bid.creation);

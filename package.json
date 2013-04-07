@@ -10,7 +10,8 @@
     "hjs": "*",
     "less-middleware": "*",
     "mongodb": "1.2.14",
-    "validator": "0.4.28"
+    "validator": "0.4.28",
+    "aws-sdk": "0.9.7-pre.8"
   },
   "engines": {
     "node": "0.10.x",
