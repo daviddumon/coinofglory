@@ -36,7 +36,7 @@ body #pay {
 }
 body #getglory i,
 body #pay i {
-  background-image: url('../images/glyphicons-halflings-white.png');
+  background-image: url('../img/glyphicons-halflings-white.png');
 }
 body #getglory span,
 body #pay span {
