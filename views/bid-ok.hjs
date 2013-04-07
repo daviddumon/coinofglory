@@ -37,11 +37,11 @@
 <a class="brand" href="/"><img src="/img/bitcoin.png"/><span>Coin of glory</span><img src="/img/bitcoin.png"/></a>
 
 <div id="bid-ok">
-    <p>You can pay by following this url : </p>
-    <a href="{{url}}">{{url}}</a>
-    <p>Or pay directly : </p>
+    <p>You can pay directly : </p>
     <iframe src="{{url}}&view=iframe" width="500" height="150"></iframe>
-    <p>Your glory will be available after transaction confirmation (5 or 10 minutes)</p>
+    <p>Or pay on BitPay :</p>
+    <a class="btn btn-large btn-success" href="{{url}}" target="_blank">Pay on BitPay</a>
+    <p id="informations">Your glory will be available after transaction confirmation (5 or 10 minutes)</p>
 </div>
 
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
