@@ -4,7 +4,7 @@ var mongo = require('../mongo/mongofactory'),
 
 
 exports.add = function(req, res) {
-    if (!(req.query["v"] == configuration.bitPay.notificationParameter)) {
+    if (!(req.query["v"] == configuration.bitPay.invoiceParameters.notificationParameter)) {
         res.send(403);
     } else {
         newNotification(req.body, res);
