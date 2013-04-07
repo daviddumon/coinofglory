@@ -65,11 +65,7 @@
 <div id="pay">
     <form method="post" action="/bid" enctype="multipart/form-data">
         <label for="form-url">Url</label>
-        <select name="protocol">
-            <option value="http">http://</option>
-            <option value="https">https://</option>
-        </select>
-        <input id="form-url" type="text" name="url" required="required"/>
+        <input id="form-url" type="url" name="url" required="required"/>
 
         <div class="fileupload fileupload-new" data-provides="fileupload">
             <div>

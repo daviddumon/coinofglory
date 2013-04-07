@@ -8,7 +8,7 @@ exports.index = function (req, res) {
 };
 
 exports.creation = function (req, res) {
-    newGlory(req.files.image, req.body.protocol + '://' + req.body.url, res);
+    newGlory(req.files.image, req.body.url, res);
 }
 
 function newGlory(image, url, res) {
