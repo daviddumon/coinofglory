@@ -20,14 +20,14 @@ function newGlory(image, url, res) {
     AWS.config.update({accessKeyId: configuration.amazon.accessKeyId, secretAccessKey: configuration.amazon.secretAccessKey, region: 'us-east-1'});
     var s3Key = uuid.v4();
     fs.readFile(image.path, function (err, data) {
-        var options = {Bucket: configuration.amazon.s3Bucket, Key: s3Key, Body: data, ACL:'public-read', ContentType : image.type};
+        var options = {Bucket: configuration.amazon.s3Bucket, Key: s3Key, Body: data, ACL:'public-read', ContentType : image.type, StorageClass : 'REDUCED_REDUNDANCY'};
         var s3 = new AWS.S3();
         s3.client.putObject(options, function(err, data) {
             if (err) {
                 console.log(err);
             }
             else {
-                addGlory(s3Key, url, res);
+                //addGlory(s3Key, url, res);
             }
         });
     });
