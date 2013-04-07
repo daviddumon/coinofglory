@@ -1,14 +1,8 @@
-var mongo = require('../mongo/mongofactory');
+var mongo = require('../mongo/mongofactory'),
+    glory = require('../glory/glory');
 
 exports.index = function (req, res) {
-    mongo.execute(function (err, db) {
-        db.collection('glory', function (err, collection) {
-            collection.find({paidDate: { $exists: true }}, {sort: [
-                ['paidDate', 'desc']
-            ]}).nextObject(function (err, doc) {
-                console.log(doc);
-                res.render('index', {glory: doc});
-            });
-        });
+    glory.lastPaid(function (err, doc) {
+        res.render('index', {glory: doc});
     });
 };
