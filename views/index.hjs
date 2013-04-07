@@ -12,7 +12,7 @@
     <link rel='stylesheet' href='/css/style.css'/>
 
     <link href="//fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" type="image/png" href="/img/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="/img/favicon.png"/>
     <!--[if lt IE 9]>
     <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -42,9 +42,12 @@
 </div>
 
 <div id="theglory">
-    <a href="{{glory.link}}"><img src="{{glory.imageUrl}}" /></a>
+    <a href="{{glory.link}}"><img src="{{glory.imageUrl}}"/></a>
 </div>
 
+<div class="container">
+    <a class="btn btn-success" href="/glories/{{past}}">Past glories</a>
+</div>
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 </body>
