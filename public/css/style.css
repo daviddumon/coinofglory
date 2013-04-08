@@ -15,16 +15,18 @@ body a.brand {
   display: block;
   margin: 0px auto;
   text-align: center;
-  margin-top: 80px !important;
   text-decoration: none !important;
-}
-body a.brand:hover span {
-  color: #f5f0ed !important;
+  border-bottom: 1px solid #f5f0ed;
+  padding: 2em 0 1em 0;
+  width: 80%;
 }
 body a.brand span {
-  color: #d3751b !important;
+  color: #f5f0ed !important;
   font-family: 'Lobster';
   font-size: 64px;
+}
+body a.brand span:hover {
+  color: #f0ead9 !important;
 }
 body a.brand img {
   margin-top: -30px;
@@ -33,7 +35,7 @@ body a.brand img {
 }
 body #getglory,
 body #pay {
-  margin: 50px !important;
+  margin: 4em auto;
 }
 body #getglory label,
 body #pay label {
@@ -58,7 +60,7 @@ body #bid-ok #informations {
 }
 body #theglory {
   padding: 0px;
-  margin: 0px auto;
+  margin: 4em auto;
 }
 body #theglory img {
   max-width: 80%;
@@ -87,10 +89,4 @@ body #explications li i {
 body #explications li p {
   font-size: 24px;
   line-height: 1.3em;
-}
-body a#past {
-  display: block;
-  margin: 0px auto;
-  width: 100px;
-  margin-top: 200px;
 }

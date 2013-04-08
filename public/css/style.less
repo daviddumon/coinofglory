@@ -1,6 +1,12 @@
 @circawhite: #F5F0ED;
+@circawhite-1: #F0EAD9;
+@circawhite-2: #E0DAC9;
 @help: #ECAB75;
+@help-1: #E3A36A;
+@help-2: #D3935A;
 @pressure: #D3751B;
+@pressure-1: #E87008;
+@pressure-2: #D86000;
 @ferrum: #571D07;
 @terranera: #29100C;
 
@@ -23,20 +29,19 @@ body {
     display: block;
     margin: 0px auto;
     text-align: center;
-    margin-top: 80px !important;
     text-decoration: none !important;
-
-    &:hover {
-
-      span {
-        color: @circawhite !important;
-      }
-    }
+    border-bottom: 1px solid @circawhite;
+    padding: 2em 0 1em 0;
+    width: 80%;
 
     span {
-      color: @pressure !important;
+      color: @circawhite !important;
       font-family: 'Lobster';
       font-size: 64px;
+
+      &:hover {
+        color: @circawhite-1 !important;
+      }
     }
 
     img {
@@ -47,7 +52,7 @@ body {
   }
 
   #getglory, #pay {
-    margin: 50px !important;
+    margin: 4em auto;
 
     label {
       font-size: 16px;
@@ -74,7 +79,7 @@ body {
 
   #theglory {
     padding: 0px;
-    margin: 0px auto;
+    margin: 4em auto;
 
     img {
       max-width: 80%;
@@ -106,12 +111,5 @@ body {
         line-height: 1.3em;
       }
     }
-  }
-
-  a#past {
-    display: block;
-    margin: 0px auto;
-    width: 100px;
-    margin-top: 200px;
   }
 }

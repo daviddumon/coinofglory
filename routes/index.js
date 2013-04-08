@@ -3,7 +3,11 @@ var mongo = require('../mongo/mongofactory'),
 
 exports.index = function (req, res) {
     var glory_index = parseInt(req.params.index) || 0;
-    glory.lastPaid(function (err, doc) {
-        res.render('index', {glory: doc, past: glory_index + 1});
-    }, glory_index);
+    glory.allPaidGlories(function (err, documents) {
+        var glories = new Array();
+        for (var index = 0; index < documents.length; index++) {
+            glories.push({"index": index, "link": documents[index].link, "imageUrl": documents[index].imageUrl});
+        }
+        res.render('index', {glory: documents[0], glories: glories, past: glory_index + 1});
+    });
 };
