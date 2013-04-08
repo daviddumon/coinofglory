@@ -42,7 +42,10 @@
 </head>
 
 <body>
-<a class="brand" href="/"><img src="/img/bitcoin.png"/><span>Coin of glory</span><img src="/img/bitcoin.png"/></a>
+<header>
+    <a class="brand" href="/"><img src="/img/bitcoin.png"/><span>Coin of glory</span><img src="/img/bitcoin.png"/></a>
+    <span id="twitter">follow us on twitter <a href="https://twitter.com/coinofglory">@coinofglory</a></span>
+</header>
 
 <ul id="explications">
     <li>
@@ -74,11 +77,11 @@
                 <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
             </div>
             <div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;">
-                <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" />
+                <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image"/>
             </div>
 
         </div>
-        <br />
+        <br/>
         <button type="submit" class="btn btn-large btn-success" href="/bid">I want glory !</button>
     </form>
 </div>

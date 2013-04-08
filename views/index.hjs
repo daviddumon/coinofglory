@@ -36,8 +36,10 @@
 </head>
 
 <body>
-
-<a class="brand" href="/"><img src="/img/bitcoin.png"/><span>Coin of glory</span><img src="/img/bitcoin.png"/></a>
+<header>
+    <a class="brand" href="/"><img src="/img/bitcoin.png"/><span>Coin of glory</span><img src="/img/bitcoin.png"/></a>
+    <span id="twitter">follow us on twitter <a href="https://twitter.com/coinofglory">@coinofglory</a></span>
+</header>
 
 <div id="getglory">
     <a class="btn btn-large btn-success" href="/bid"><i class="icon-star-empty"></i><span>Get glory now</span><i class="icon-star-empty"></i></a>
