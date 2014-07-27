@@ -32,7 +32,7 @@ exports.add = function (s3Key, siteUrl, res) {
                 if (err) {
                     res.send({'error': 'An error has occurred'});
                 } else {
-                    newInvoice(0.005, glory._id, res);
+                    newInvoice(0.0005, glory._id, res);
                 }
             });
         });
